@@ -11,7 +11,7 @@ void setup()
 
 void draw()
 {
-  text(myString,125,125); 
+  text(myString,125,125); 
 }
 
 

@@ -1,30 +1,13 @@
-import ddf.minim.*;
+JSONObject json;
 
-Minim minim;
-AudioInput mic;
-
-int x = 1;
-
-void setup()
+void setup() 
 {
-  size(500, 500);
- minim = new Minim(this);
- mic = minim.getLineIn();
- 
-  frameRate(120);
-  background(150);
-}
-void draw()
-{
-  stroke(0, 0, 255);
-  line(x, height-20, x, (height-20)-abs(mic.left.get(0)*200));
-  x=x+1;
+  json = loadJSONObject("http://api.openweathermap.org/data/2.5/weather?q=Boulder,CO&units=imperial");
 
-  if (x>=width)
-  {
-    background(150);
-    x=0;
-  }
-}
+  JSONObject coord = json.getJSONObject("coord");
+  float lon = coord.getFloat("lon");
+  float lat = coord.getFloat("lat");
 
+  println(lon + "," + lat);
+}
 

@@ -37,8 +37,9 @@ line(419,333,430,300);  //right arm
 line(625,440,700,530);  //left arm
 line(668,494,660,525);
 
-println(mouseX+","mouseY);
- noLoop();
+//noLoop();
+
+println(mouseX+","+mouseY);
 
 }
 

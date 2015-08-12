@@ -1,32 +1,77 @@
+PImage jeff; 
+PImage amanda;
+PImage lindsay;
+PImage ben;
 PImage brian;
+PImage angela;
 
 void setup()
 {
-  brian = loadImage("brian.png");
-  brian.filter(THRESHOLD,.88);
-  size(900,900);
+ size(1000,800); 
+  
+ jeff = loadImage("jeff.png");
+ amanda = loadImage("amanda.png");
+ lindsay = loadImage("lindsay.png");
+ ben = loadImage("ben.png");
+ brian = loadImage("brian.png"); 
+ angela = loadImage("angela.png");
+ background(200,0,200);
+ imageMode(CENTER);
 }
 
 void draw()
 {
-  tint(255,0,0);
-  image(brian,0,0,300,300);
-  tint(0,0,255);
-  image(brian,300,0,300,300);
-  tint(99,151,30);
-  image(brian,600,0,300,300);
-  tint(8,252,57);
-  image(brian,0,300,300,300);
-  tint(255,255,56);
-  image(brian,300,300,300,300);
-  tint(255,45,250);
-  image(brian,600,300,300,300);
-  tint(255,150,30);
-  image(brian,0,600,300,300);
-  tint(0,150,255);
-  image(brian,300,600,300,300);
-  tint(150,255,155);
-  image(brian,600,600,300,300);
-}
+  pushMatrix();
+  translate(500, 20);
+  rotate(1.6);
+  scale(1.5);
+  tint(second()*4,second()*4,second()*4); 
+  image(angela, 0, 0);
+  popMatrix(); 
 
+  pushMatrix();
+  translate(200, 200);
+  rotate(.5);
+  tint(255,mouseY/4);
+  image(jeff, 0, 0); 
+  popMatrix();
+
+  pushMatrix();
+  translate(600, 600);
+  rotate(1.3);
+  scale(1.5);
+  tint(100,150,0);
+  image(amanda, 0, 0);
+  popMatrix();
+
+  pushMatrix();
+  translate(150, 500);
+  rotate(.15);
+  tint(mouseX/4,mouseY/4,0); 
+  image(brian, 0, 0);
+  popMatrix();
+
+  pushMatrix();
+  translate(800, 200);
+  rotate(-1);
+  tint(255,255,255,mouseX/4); 
+image(ben, 0, 0);
+  popMatrix();
+  
+  pushMatrix();
+  translate(500, 400); 
+  scale(.75);
+  rotate(.2);
+  noTint();
+  image(lindsay, 0, 0);
+  popMatrix();
+  
+  jeff.filter(BLUR,7); 
+  lindsay.filter(GRAY);
+  ben.filter(POSTERIZE,3);
+  angela.filter(ERODE);
+  brian.filter(INVERT);
+  amanda.filter(THRESHOLD,.8);
+
+}
 

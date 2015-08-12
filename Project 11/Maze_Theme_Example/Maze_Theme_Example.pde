@@ -1,0 +1,66 @@
+import ddf.minim.*;
+
+Minim minim;
+AudioPlayer theme;
+
+PImage maze;
+
+int x = 162;
+int y = 162;
+
+void setup()
+{
+   minim = new Minim(this);
+   
+  theme = minim.loadFile("Tetris.mp3");
+  maze = loadImage("maze.png");  
+  size(324, 324);
+}
+void keyPressed()
+{
+  if ((key == CODED) && (keyCode == UP))
+  {
+    y--;
+  } 
+  if ((key == CODED) && (keyCode == DOWN))
+  {
+    y++;
+  } 
+  if ((key == CODED) && (keyCode == RIGHT))
+  {
+    x++;
+  } 
+  if ((key == CODED) && (keyCode == LEFT))
+  {
+    x--;
+  }
+}
+
+
+void draw()
+{
+  theme.play();
+  background(255);
+  image(maze,0,0);
+ 
+ if((x > 155) && (x < 180) && (y < 15))
+  {
+    textSize(48);
+    textAlign(CENTER);
+    fill(255,0,0);
+    text("YOU WIN!",width/2,height/2);
+  }
+
+  fill(255, 0, 0);
+  noStroke();
+  float touch = red(get(x,y));
+  ellipse(x, y, 10, 10);
+  
+  if(touch <= 200)
+  {
+   x = 162;
+   y = 162; 
+  }
+  println(mouseX + "," + mouseY);
+}
+

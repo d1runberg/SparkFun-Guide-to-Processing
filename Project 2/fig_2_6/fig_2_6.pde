@@ -1,33 +1,25 @@
 void setup()
-
-{ 
-
-  size(200, 200);
-
-  background(150); //background color
-
+{
+  size(250,250);
+  background(150);
 }
 
 void draw()
-
 {
+  stroke(255,0,0);
+  strokeWeight(10);
 
-  stroke(255, 0, 0);
-
-  strokeWeight(5); 
-
-  line(0, 0, 200, 200);
-
-  strokeWeight(15); 
-
-  stroke(0, 255, 0);
-
-  line(50, 0, 200, 150);
-
-  strokeWeight(30); 
-
-  stroke(0, 0, 255);
-
-  line(100, 0, 200, 100);
-
+  strokeCap(ROUND);
+  line(25,25,175,25);
+  
+  stroke(0,255,0);
+  strokeWeight(10);
+  strokeCap(SQUARE);
+  line(25,75,175,75);
+  
+  stroke(0,0,255);
+  strokeWeight(10);
+  strokeCap(PROJECT);
+  line(25,125,175,125);
 }
+
